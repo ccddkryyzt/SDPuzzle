@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Rogue-like",
+"dataUrl": "Rogue-like.data.unityweb",
+"wasmCodeUrl": "Rogue-like.wasm.code.unityweb",
+"wasmFrameworkUrl": "Rogue-like.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
