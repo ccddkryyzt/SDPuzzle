@@ -10,29 +10,13 @@
       <item>
         <title>SET LIST</title>
         
-          <description>&lt;ul&gt;
-  &lt;li&gt;Lemon / 米津玄師&lt;/li&gt;
-  &lt;li&gt;マリーゴールド / あいみょん&lt;/li&gt;
-  &lt;li&gt;SUN / 星野源&lt;/li&gt;
-  &lt;li&gt;天体観測 / BUMP OF CHICKEN&lt;/li&gt;
-  &lt;li&gt;田園 / 玉置浩二&lt;/li&gt;
-  &lt;li&gt;涙をとどけて / トータス松本&lt;/li&gt;
-  &lt;li&gt;オールライト / 関取花&lt;/li&gt;
-  &lt;li&gt;Change the World / Eric Clapton&lt;/li&gt;
-  &lt;li&gt;Stand By Me / Ben E. King&lt;/li&gt;
-  &lt;li&gt;瞬き / back number&lt;/li&gt;
-  &lt;li&gt;さよならエレジー / 菅田将暉&lt;/li&gt;
-  &lt;li&gt;青空 / THE BLUE HEARTS&lt;/li&gt;
-  &lt;li&gt;全力少年 / スキマスイッチ&lt;/li&gt;
-  &lt;li&gt;明日はきっといい日になる / 高橋優&lt;/li&gt;
-  &lt;li&gt;なんでもないや / RAD WIMPS&lt;/li&gt;
-  &lt;li&gt;俺ら東京さ行ぐだ /吉幾三&lt;/li&gt;
-  &lt;li&gt;とうもろこし / 遊助&lt;/li&gt;
-  &lt;li&gt;夏色 / ゆず&lt;/li&gt;
-  &lt;li&gt;大空と大地の中で / 松山千春&lt;/li&gt;
-  &lt;li&gt;空も飛べるはず / スピッツ&lt;/li&gt;
-  &lt;li&gt;小さな恋の歌 / MONGOL800&lt;/li&gt;
-&lt;/ul&gt;
+          <description>&lt;style type=&quot;text/css&quot;&gt;
+      li
+      {
+         margin-top: 1em;
+      }
+&lt;/style&gt;
+
 </description>
         
         <pubDate>Tue, 01 Oct 2019 00:00:00 +0900</pubDate>
