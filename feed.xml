@@ -11,10 +11,10 @@
         <title>SET LIST</title>
         
           <description>&lt;style type=&quot;text/css&quot;&gt;
-      li
-      {
-         margin-top: 1em;
-      }
+  ul li, ol li {
+    line-height: 1.5; /*文の行高*/
+    padding: 0.5em 0; /*前後の文との余白*/
+  }
 &lt;/style&gt;
 
 </description>
