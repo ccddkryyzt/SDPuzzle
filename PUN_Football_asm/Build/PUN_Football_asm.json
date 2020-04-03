@@ -1,0 +1,13 @@
+{
+"companyName": "TK",
+"productName": "PUN_Football",
+"dataUrl": "PUN_Football_asm.data.unityweb",
+"asmCodeUrl": "PUN_Football_asm.asm.code.unityweb",
+"asmMemoryUrl": "PUN_Football_asm.asm.memory.unityweb",
+"asmFrameworkUrl": "PUN_Football_asm.asm.framework.unityweb",
+"TOTAL_MEMORY": 134217728,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#828080"
+}
