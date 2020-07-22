@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>QR Generator</title>
+    <script src="./build/qrcode.min.js"></script>
+    <script src="./build/qrcode.tosjis.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Ropa Sans', sans-serif;
+            color: #333;
+            max-width: 640px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #githubLink {
+            position: absolute;
+            right: 0;
+            top: 12px;
+            color: #2D99FF;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 40px;
+        }
+
+        #canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>QRCode Generator</h1>
+    <a id="githubLink" href="https://github.com/soldair/node-qrcode">View documentation on Github</a>
+    <p>Pure JavaScript QR code encoding library.</p>
+    <canvas id="canvas"></canvas>
+    <textarea id="srcTextArea" rows="20" cols="80"></textarea>
+    <input type="button" value="execute" onclick="execute()" />
+    <script>
+        var canvasElement = document.getElementById("canvas");
+        var canvas = canvasElement.getContext("2d");
+        var output = `WEBカメラから送られてくる画像の場合、@3
+ファイル名は同じで画像が上書きされます。@5
+はひふへほかきくけこさしすせそ@8`;
+        document.getElementById("srcTextArea").value = output;
+
+        function execute() {
+            var arrayLine = splitByLine();
+            loopStart(arrayLine.length, 0, arrayLine);
+        }
+
+        function splitByLine() {
+            var text = document.getElementById('srcTextArea').value.replace(/\r\n|\r/g, "\n");
+            var lines = text.split('\n');
+            var outArray = new Array();
+
+            for (var i = 0; i < lines.length; i++) {
+                // 空行は無視する
+                if (lines[i] == '') {
+                    continue;
+                }
+
+                outArray.push(lines[i]);
+            }
+
+            return outArray;
+        }
+
+        function loopStart(length, i, arrayLine) {
+            var col = arrayLine[i].split("@");
+            if (i <= length && col.length == 2) {
+                var outputText = col[0];
+                var s = col[1];
+                outputText = "https://ccddkryyzt.github.io/QR_Viewer/?" + outputText;
+                generateQR(outputText);
+                setTimeout(function () { loopStart(length, ++i, arrayLine) }, s * 1000);
+            }
+        }
+
+        function generateQR(item) {
+            QRCode.toCanvas(document.getElementById('canvas'),
+                item, { toSJISFunc: QRCode.toSJIS, scale: 16 }, function (error) {
+                    if (error) console.error(error)
+                    console.log('success!')
+                })
+        }
+
+    </script>
+</body>
+
+</html>
