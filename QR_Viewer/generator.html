@@ -31,6 +31,26 @@
             width: 100%;
             height: 100%;
         }
+
+        .btn-square {
+            display: inline-block;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            background: #668ad8;
+            /*ボタン色*/
+            color: #FFF;
+            border-bottom: solid 4px #627295;
+            border-radius: 3px;
+        }
+
+        .btn-square:active {
+            /*ボタンを押したとき*/
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+            /*下に動く*/
+            border-bottom: none;
+            /*線を消す*/
+        }
     </style>
 </head>
 
@@ -40,13 +60,16 @@
     <p>Pure JavaScript QR code encoding library.</p>
     <canvas id="canvas"></canvas>
     <textarea id="srcTextArea" rows="20" cols="80"></textarea>
-    <input type="button" value="execute" onclick="execute()" />
+    <input type="button" class="btn-square" value="execute" onclick="execute()" />
     <script>
         var canvasElement = document.getElementById("canvas");
         var canvas = canvasElement.getContext("2d");
-        var output = `WEBカメラから送られてくる画像の場合、@3
-ファイル名は同じで画像が上書きされます。@5
-はひふへほかきくけこさしすせそ@8`;
+        var output = `[使い方]@3
+表示させたい文字のQRコードを1行ずつ生成します。@3
+文字の後ろにアットマーク[＠(半角)]をつけて表示させたい秒数を指定できます。@5
+[execute]ボタンを押すとQRコードの表示が開始されます。@7
+視聴者がカメラアプリでQRコードをスキャンすると、このサイトが開きます。@5
+`;
         document.getElementById("srcTextArea").value = output;
 
         function execute() {
