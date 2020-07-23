@@ -70,9 +70,9 @@
     <a id="githubLink" href="https://github.com/cozmo/jsQR">View documentation on Github</a>
     <p>Pure JavaScript QR code decoding library.</p>
     <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
-    <div id="canvas-container">
-        <canvas id="canvas" hidden></canvas>
-    </div>
+    <!--<div id="canvas-container">-->
+    <canvas id="canvas" hidden></canvas>
+    <!--</div>-->
     <div id="output" hidden>
         <div id="outputMessage">No QR code detected.</div>
         <div hidden><b>Data:</b> <span id="outputData"></span></div>
@@ -88,8 +88,8 @@
         var outputData = document.getElementById("outputData");
 
         //親要素のサイズをCanvasに指定
-        canvasElement.width = container.clientWidth;
-        canvasElement.height = container.clientHeight;
+        //canvasElement.width = container.clientWidth;
+        //canvasElement.height = container.clientHeight;
         // Use facingMode: environment to attemt to get the front camera on phones
         navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
             video.srcObject = stream;
