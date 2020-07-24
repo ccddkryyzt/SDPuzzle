@@ -46,7 +46,7 @@
 
     <div id="controls">
         <!--<div><a input type="button" class="play" onclick="this.innerText = play();">play</a></div>-->
-        <div id="tempoBox">Tempo: <span id="showTempo">120</span>BPM <input id="tempo" type="range" min="70.0"
+        <div id="tempoBox">Tempo: <span id="showTempo">111</span>BPM <input id="tempo" type="range" min="70.0"
                 max="150.0" step="1" value="111" style="height: 40px; width: 400px"
                 onInput="tempo = event.target.value; document.getElementById('showTempo').innerText=tempo;"></div>
         <div>Resolution:<select onchange="noteResolution = this.selectedIndex;">
@@ -60,10 +60,11 @@
         var canvasElement = document.getElementById("canvas");
         var canvas = canvasElement.getContext("2d");
         var output = `[使い方]@3
-表示させたい文字のQRコードを1行ずつ生成します。@3
-文字の後ろにアットマーク[＠(半角)]をつけて表示させたい秒数を指定できます。@5
-[execute]ボタンを押すとQRコードの表示が開始されます。@7
-視聴者がカメラアプリでQRコードをスキャンすると、このサイトが開きます。@5`;
+表示させたい文字のQRコードを1行ずつ生成します。@6
+文字の後ろにアットマーク[＠(半角)]をつけて表示させたい秒数(絶対時間)を指定できます。@10
+[execute]ボタンを押すとQRコードの表示が開始されます。@14
+視聴者がカメラアプリでQRコードをスキャンすると、このサイトが開きます。@20`;
+        var elapsedTime = 0;
         document.getElementById("srcTextArea").value = output;
 
         function execute() {
@@ -96,7 +97,8 @@
                 var s = col[1];
                 outputText = "https://ccddkryyzt.github.io/QR_Viewer/?" + outputText;
                 generateQR(outputText);
-                setTimeout(function () { loopStart(length, ++i, arrayLine) }, s * 1000);
+                setTimeout(function () { loopStart(length, ++i, arrayLine) }, (s - elapsedTime) * 1000);
+                elapsedTime = s;
             }
         }
 
