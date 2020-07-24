@@ -65,13 +65,23 @@
 [execute]ボタンを押すとQRコードの表示が開始されます。@14
 視聴者がカメラアプリでQRコードをスキャンすると、このサイトが開きます。@20`;
         var elapsedTime = 0;
+        var arrayLine;
         document.getElementById("srcTextArea").value = output;
         generateQR("https://ccddkryyzt.github.io/QR_Viewer/? ");
 
         function execute() {
             play();
-            var arrayLine = splitByLine();
-            loopStart(arrayLine.length, 0, arrayLine);
+            arrayLine = splitByLine();
+            requestAnimationFrame(tick);
+        }
+
+        //2カウントしたらQRの表示を開始
+        function tick() {
+            if (countEight == 2) {
+                loopStart(arrayLine.length, 0, arrayLine);
+            } else if (countEight < 2) {
+                requestAnimationFrame(tick);
+            }
         }
 
         function splitByLine() {

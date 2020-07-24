@@ -19,6 +19,7 @@ var notesInQueue = [];      // the notes that have been put into the web audio,
 // and may or may not have played yet. {note, time}
 var timerWorker = null;     // The Web Worker used to fire timer messages
 
+var countEight = 0;
 
 // First, let's shim the requestAnimationFrame API, with a setTimeout fallback
 window.requestAnimFrame = (function () {
@@ -41,6 +42,7 @@ function nextNote() {
     current16thNote++;    // Advance the beat number, wrap to zero
     if (current16thNote == 16) {
         current16thNote = 0;
+        countEight++;
     }
 }
 
@@ -90,6 +92,7 @@ function play() {
 
     if (isPlaying) { // start playing
         current16thNote = 0;
+        countEight = 0;
         nextNoteTime = audioContext.currentTime;
         timerWorker.postMessage("start");
         return "stop";
