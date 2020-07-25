@@ -41,9 +41,10 @@
     <a id="githubLink" href="https://github.com/soldair/node-qrcode">View documentation on Github</a>
     <p>Pure JavaScript QR code encoding library.</p>
     <canvas id="canvas"></canvas>
+    <div id="outputData"></div>
     <textarea id="srcTextArea" rows="20" cols="80"></textarea>
     <input type="button" value="execute" onclick="execute()" />
-
+    <input type="button" value="stop" onclick="stop()" />
     <div id="controls">
         <!--<div><a input type="button" class="play" onclick="this.innerText = play();">play</a></div>-->
         <div id="tempoBox">Tempo: <span id="showTempo">111</span>BPM <input id="tempo" type="range" min="70.0"
@@ -75,11 +76,15 @@
             requestAnimationFrame(tick);
         }
 
-        //2カウントしたらQRの表示を開始
+        function stop() {
+            play();
+        }
+
+        //4カウントしたらQRの表示を開始
         function tick() {
-            if (countEight == 2) {
+            if (countEight == 4) {
                 loopStart(arrayLine.length, 0, arrayLine);
-            } else if (countEight < 2) {
+            } else if (countEight < 4) {
                 requestAnimationFrame(tick);
             }
         }
@@ -106,6 +111,7 @@
             if (i <= length && col.length == 2) {
                 var outputText = col[0];
                 var s = col[1];
+                outputData.innerText = outputText;
                 outputText = "https://ccddkryyzt.github.io/QR_Viewer/?" + outputText;
                 generateQR(outputText);
                 setTimeout(function () { loopStart(length, ++i, arrayLine) }, (s - elapsedTime) * 1000);

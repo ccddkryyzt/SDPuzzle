@@ -89,10 +89,11 @@ function play() {
     }
 
     isPlaying = !isPlaying;
+    countEight = 0;
 
     if (isPlaying) { // start playing
         current16thNote = 0;
-        countEight = 0;
+
         nextNoteTime = audioContext.currentTime;
         timerWorker.postMessage("start");
         return "stop";
